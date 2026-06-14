@@ -247,4 +247,4 @@ This project demonstrates:
 Prerna Mishra
 
 GitHub: https://github.com/prerna-m01
-LinkedIn: https://www.linkedin.com/in/prernam01/
+LinkedIn: https://www.linkedin.com/in/prernamishra01
