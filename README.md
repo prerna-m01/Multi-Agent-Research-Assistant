@@ -242,9 +242,4 @@ This project demonstrates:
 
 ---
 
-## Author
 
-Prerna Mishra
-
-GitHub: https://github.com/prerna-m01
-LinkedIn: https://www.linkedin.com/in/prernamishra01
