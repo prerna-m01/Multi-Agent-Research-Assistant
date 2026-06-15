@@ -1,7 +1,7 @@
 from services.llm_service import LLMService
 
 
-class WriterAgent:
+class SummarizerAgent:
 
     def __init__(self):
         self.llm = LLMService()
@@ -9,13 +9,13 @@ class WriterAgent:
     def run(self, state):
 
         prompt = f"""
-        Create a final research report.
+        Summarize:
 
-        {state["summary"]}
+        {state["search_results"]}
         """
 
-        report = self.llm.generate(prompt)
+        summary = self.llm.generate(prompt)
 
-        state["final_report"] = report
+        state["summary"] = summary
 
         return state
