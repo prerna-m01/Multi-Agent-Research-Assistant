@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from datetime import datetime
 
 
 class HistoryResponse(BaseModel):
@@ -8,6 +9,8 @@ class HistoryResponse(BaseModel):
     query: str
 
     report: str
+
+    created_at: datetime
 
     class Config:
         from_attributes = True

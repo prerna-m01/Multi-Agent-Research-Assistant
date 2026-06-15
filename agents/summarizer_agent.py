@@ -6,17 +6,19 @@ class SummarizerAgent:
     def __init__(self):
         self.llm = LLMService()
 
-    def run(self, state):
-
+    async def run(
+        self,
+        state
+    ):
         prompt = f"""
-        Research Topic:
-        {state['query']}
+Research Topic:
+{state['query']}
 
-        Search Results:
-        {state['search_results']}
+Search Results:
+{state['search_results']}
 
-        Create a concise summary.
-        """
+Create a concise summary.
+"""
 
         summary = self.llm.generate(prompt)
 

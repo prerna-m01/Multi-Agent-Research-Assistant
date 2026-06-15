@@ -1,0 +1,408 @@
+2026-06-15 17:16:49,269 - INFO - research_assistant - GET /docs 0.00s
+2026-06-15 17:16:49,773 - INFO - research_assistant - GET /openapi.json 0.09s
+2026-06-15 17:17:22,503 - ERROR - research_assistant - 1 validation error:
+  {'type': 'model_attributes_type', 'loc': ('response',), 'msg': 'Input should be a valid dictionary or object to extract fields from', 'input': None}
+
+  File "C:\multi_agent_research_assistant\api\research.py", line 24, in research
+    POST /research/
+Traceback (most recent call last):
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\starlette\middleware\base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\main.py", line 60, in log_requests
+    response = await call_next(
+               ^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\fastapi\routing.py", line 695, in app
+    content = await serialize_response(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\fastapi\routing.py", line 300, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation error:
+  {'type': 'model_attributes_type', 'loc': ('response',), 'msg': 'Input should be a valid dictionary or object to extract fields from', 'input': None}
+
+  File "C:\multi_agent_research_assistant\api\research.py", line 24, in research
+    POST /research/
+2026-06-15 17:29:51,659 - INFO - research_assistant - GET /docs 0.01s
+2026-06-15 17:29:51,902 - INFO - research_assistant - GET /openapi.json 0.03s
+2026-06-15 17:30:00,768 - INFO - research_assistant - Research started: Impact of Quantum Computing on Cybersecurity
+2026-06-15 17:30:00,770 - INFO - research_assistant - Research started: Impact of Quantum Computing on Cybersecurity
+2026-06-15 17:30:00,772 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2026-06-15 17:30:02,008 - INFO - httpx - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-06-15 17:30:06,123 - INFO - research_assistant - Planning completed
+2026-06-15 17:30:06,124 - INFO - research_assistant - Search completed
+2026-06-15 17:30:06,125 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2026-06-15 17:30:06,666 - INFO - httpx - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-06-15 17:30:06,669 - INFO - research_assistant - Summary completed
+2026-06-15 17:30:06,669 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2026-06-15 17:30:07,360 - INFO - httpx - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-06-15 17:30:07,363 - INFO - research_assistant - Report completed
+2026-06-15 17:30:07,405 - INFO - research_assistant - Research completed
+2026-06-15 17:30:07,411 - INFO - research_assistant - POST /research/ 6.66s
+2026-06-15 17:30:10,678 - INFO - research_assistant - Research started: Impact of Quantum Computing on Cybersecurity
+2026-06-15 17:30:10,679 - INFO - research_assistant - Research started: Impact of Quantum Computing on Cybersecurity
+2026-06-15 17:30:10,679 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2026-06-15 17:30:11,387 - INFO - httpx - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-06-15 17:30:11,743 - INFO - research_assistant - Planning completed
+2026-06-15 17:30:11,743 - INFO - research_assistant - Search completed
+2026-06-15 17:30:11,743 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2026-06-15 17:30:12,227 - INFO - httpx - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-06-15 17:30:12,229 - INFO - research_assistant - Summary completed
+2026-06-15 17:30:12,229 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2026-06-15 17:30:12,464 - INFO - httpx - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-06-15 17:30:12,466 - INFO - research_assistant - Report completed
+2026-06-15 17:30:12,483 - INFO - research_assistant - Research completed
+2026-06-15 17:30:12,484 - INFO - research_assistant - POST /research/ 1.81s
+2026-06-15 17:51:54,840 - INFO - research_assistant - GET /docs 0.00s
+2026-06-15 17:51:55,310 - INFO - research_assistant - GET /openapi.json 0.01s
+2026-06-15 17:52:09,950 - ERROR - research_assistant - Research failed
+Traceback (most recent call last):
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: table research_reports has no column named status
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\multi_agent_research_assistant\api\research.py", line 34, in research
+    job = create_research_job(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\database\crud.py", line 93, in create_research_job
+    db.commit()
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2034, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1315, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1290, in _prepare_impl
+    self.session.flush()
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
+    self._flush(objects)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
+    flush_context.execute()
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 465, in execute
+    rec.execute(self)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 641, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 94, in save_obj
+    _emit_insert_statements(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1234, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1421, in execute
+    return meth(
+           ^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1643, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2365, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table research_reports has no column named status
+[SQL: INSERT INTO research_reports ("query", report, status, created_at) VALUES (?, ?, ?, ?)]
+[parameters: ('Impact of Quantum Computing on Cybersecurity', None, 'pending', '2026-06-15 12:22:09.948237')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-06-15 17:52:10,596 - INFO - research_assistant - POST /research/ 0.67s
+2026-06-15 17:52:12,645 - ERROR - research_assistant - Research failed
+Traceback (most recent call last):
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: table research_reports has no column named status
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\multi_agent_research_assistant\api\research.py", line 34, in research
+    job = create_research_job(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\database\crud.py", line 93, in create_research_job
+    db.commit()
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2034, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1315, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1290, in _prepare_impl
+    self.session.flush()
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
+    self._flush(objects)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
+    flush_context.execute()
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 465, in execute
+    rec.execute(self)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 641, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 94, in save_obj
+    _emit_insert_statements(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1234, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1421, in execute
+    return meth(
+           ^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1643, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2365, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table research_reports has no column named status
+[SQL: INSERT INTO research_reports ("query", report, status, created_at) VALUES (?, ?, ?, ?)]
+[parameters: ('Impact of Quantum Computing on Cybersecurity', None, 'pending', '2026-06-15 12:22:12.644469')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-06-15 17:52:12,652 - INFO - research_assistant - POST /research/ 0.01s
+2026-06-15 17:57:38,671 - ERROR - research_assistant - Research failed
+Traceback (most recent call last):
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: table research_reports has no column named status
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\multi_agent_research_assistant\api\research.py", line 34, in research
+    job = create_research_job(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\database\crud.py", line 93, in create_research_job
+    db.commit()
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2034, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1315, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1290, in _prepare_impl
+    self.session.flush()
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
+    self._flush(objects)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
+    flush_context.execute()
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 465, in execute
+    rec.execute(self)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 641, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 94, in save_obj
+    _emit_insert_statements(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1234, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1421, in execute
+    return meth(
+           ^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1643, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2365, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table research_reports has no column named status
+[SQL: INSERT INTO research_reports ("query", report, status, created_at) VALUES (?, ?, ?, ?)]
+[parameters: ('Impact of Quantum Computing on Cybersecurity', None, 'pending', '2026-06-15 12:27:38.671111')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-06-15 17:57:38,674 - INFO - research_assistant - POST /research/ 0.00s
+2026-06-15 17:57:39,986 - ERROR - research_assistant - Research failed
+Traceback (most recent call last):
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: table research_reports has no column named status
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\multi_agent_research_assistant\api\research.py", line 34, in research
+    job = create_research_job(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\database\crud.py", line 93, in create_research_job
+    db.commit()
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2034, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1315, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1290, in _prepare_impl
+    self.session.flush()
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
+    self._flush(objects)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
+    flush_context.execute()
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 465, in execute
+    rec.execute(self)
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 641, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 94, in save_obj
+    _emit_insert_statements(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1234, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1421, in execute
+    return meth(
+           ^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1643, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2365, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\multi_agent_research_assistant\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table research_reports has no column named status
+[SQL: INSERT INTO research_reports ("query", report, status, created_at) VALUES (?, ?, ?, ?)]
+[parameters: ('Impact of Quantum Computing on Cybersecurity', None, 'pending', '2026-06-15 12:27:39.985434')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-06-15 17:57:39,989 - INFO - research_assistant - POST /research/ 0.01s
+2026-06-15 18:00:30,401 - INFO - research_assistant - GET /docs 0.00s
+2026-06-15 18:00:30,491 - INFO - research_assistant - GET /openapi.json 0.01s
+2026-06-15 18:00:45,109 - INFO - research_assistant - Research job created: 1
+2026-06-15 18:00:45,117 - INFO - research_assistant - Research started: Impact of Quantum Computing on Cybersecurity
+2026-06-15 18:00:45,118 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2026-06-15 18:00:45,749 - INFO - httpx - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-06-15 18:00:47,955 - INFO - research_assistant - Planning completed
+2026-06-15 18:00:47,955 - INFO - research_assistant - Search completed
+2026-06-15 18:00:47,956 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2026-06-15 18:00:48,452 - INFO - httpx - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-06-15 18:00:48,453 - INFO - research_assistant - Summary completed
+2026-06-15 18:00:48,453 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2026-06-15 18:00:48,983 - INFO - httpx - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-06-15 18:00:48,983 - INFO - research_assistant - Report completed
+2026-06-15 18:00:48,993 - INFO - research_assistant - POST /research/ 3.90s
+2026-06-15 18:00:51,330 - INFO - research_assistant - Research job created: 2
+2026-06-15 18:00:51,336 - INFO - research_assistant - Research started: Impact of Quantum Computing on Cybersecurity
+2026-06-15 18:00:51,336 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2026-06-15 18:00:51,697 - INFO - httpx - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-06-15 18:00:52,006 - INFO - research_assistant - Planning completed
+2026-06-15 18:00:52,006 - INFO - research_assistant - Search completed
+2026-06-15 18:00:52,006 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2026-06-15 18:00:52,285 - INFO - httpx - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-06-15 18:00:52,285 - INFO - research_assistant - Summary completed
+2026-06-15 18:00:52,285 - INFO - google_genai.models - AFC is enabled with max remote calls: 10.
+2026-06-15 18:00:52,622 - INFO - httpx - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-06-15 18:00:52,622 - INFO - research_assistant - Report completed
+2026-06-15 18:00:52,628 - INFO - research_assistant - POST /research/ 1.31s
+2026-06-15 18:01:21,995 - INFO - research_assistant - GET /research/2/status 0.01s
+2026-06-15 18:01:23,670 - INFO - research_assistant - GET /research/2/status 0.00s
+2026-06-15 18:01:40,199 - INFO - research_assistant - GET /research/2/status 0.00s

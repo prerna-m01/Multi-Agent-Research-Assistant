@@ -1,9 +1,31 @@
 import logging
+from logging.handlers import RotatingFileHandler
+import os
 
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
+os.makedirs(
+    "logs",
+    exist_ok=True
 )
 
-logger = logging.getLogger(__name__)
+log_file = "logs/app.log"
+
+handler = RotatingFileHandler(
+    log_file,
+    maxBytes=5 * 1024 * 1024,
+    backupCount=5
+)
+
+logging.basicConfig(
+    handlers=[handler],
+    level=logging.INFO,
+    format=(
+        "%(asctime)s - "
+        "%(levelname)s - "
+        "%(name)s - "
+        "%(message)s"
+    )
+)
+
+logger = logging.getLogger(
+    "research_assistant"
+)
