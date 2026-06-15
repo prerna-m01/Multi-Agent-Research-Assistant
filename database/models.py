@@ -40,3 +40,22 @@ class Research(Base):
         DateTime,
         default=datetime.utcnow
     )
+
+class UploadedDocument(Base):
+
+    __tablename__ = "documents"
+
+    id = Column(
+        Integer,
+        primary_key=True
+    )
+
+    filename = Column(
+        String,
+        nullable=False
+    )
+
+    upload_time = Column(
+        DateTime,
+        default=datetime.utcnow
+    )

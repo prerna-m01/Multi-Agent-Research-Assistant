@@ -1,12 +1,16 @@
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
+from pydantic_settings import BaseSettings
 
 
-class Settings:
-    GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-    TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
+class Settings(BaseSettings):
+
+    GOOGLE_API_KEY: str
+
+    TAVILY_API_KEY: str
+
+    DATABASE_URL: str = "sqlite:///research.db"
+
+    class Config:
+        env_file = ".env"
 
 
 settings = Settings()

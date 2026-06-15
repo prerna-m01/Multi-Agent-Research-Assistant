@@ -142,3 +142,20 @@ def update_report(
 
     return report
 
+def save_document(
+    db,
+    filename
+):
+
+    doc = UploadedDocument(
+        filename=filename
+    )
+
+    db.add(doc)
+
+    db.commit()
+
+    db.refresh(doc)
+
+    return doc
+
