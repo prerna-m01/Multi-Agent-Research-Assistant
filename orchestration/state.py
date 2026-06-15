@@ -1,9 +1,9 @@
-from typing import TypedDict, List
+from typing import TypedDict, List, Dict
 
 
 class ResearchState(TypedDict):
     query: str
     plan: List[str]
-    search_results: List[dict]
+    search_results: List[Dict]
     summary: str
     final_report: str

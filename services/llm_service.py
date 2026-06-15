@@ -1,4 +1,5 @@
 from google import genai
+
 from core.config import settings
 
 
@@ -9,6 +10,21 @@ class LLMService:
             api_key=settings.GOOGLE_API_KEY
         )
 
+    def generate(self, prompt: str):
+
+        try:
+
+            response = self.client.models.generate_content(
+                model="gemini-2.0-flash",
+                contents=prompt
+            )
+
+            return response.text
+
+        except Exception as e:
+
+            return f"LLM Error: {str(e)}"
+
     def generate_plan(self, query: str):
 
         prompt = f"""
@@ -17,25 +33,27 @@ class LLMService:
         {query}
 
         Return ONLY a numbered list.
-        Example:
-
-        1. Understand the topic
-        2. Collect information
-        3. Analyze findings
-        4. Create report
         """
 
-        response = self.client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt
-        )
+        try:
 
-        plan_text = response.text
+            response = self.client.models.generate_content(
+                model="gemini-2.0-flash",
+                contents=prompt
+            )
 
-        plan_list = [
-            line.strip()
-            for line in plan_text.split("\n")
-            if line.strip()
-        ]
+            plan_text = response.text
 
-        return plan_list
+            plan = [
+                line.strip()
+                for line in plan_text.split("\n")
+                if line.strip()
+            ]
+
+            return plan
+
+        except Exception as e:
+
+            return [
+                f"Planning Error: {str(e)}"
+            ]

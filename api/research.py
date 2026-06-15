@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
 from schemas.request import ResearchRequest
+from schemas.response import ResearchResponse
 
-from agents.search_agent import SearchAgent
 from orchestration.workflow import ResearchWorkflow
 
 router = APIRouter(
@@ -11,27 +11,22 @@ router = APIRouter(
 )
 
 workflow = ResearchWorkflow()
-search_agent = SearchAgent()
 
 
-@router.post("/")
+@router.post(
+    "/",
+    response_model=ResearchResponse
+)
 def research(request: ResearchRequest):
 
     result = workflow.run(
         request.query
     )
 
-    return result
-
-
-@router.post("/search")
-def search(request: ResearchRequest):
-
-    results = search_agent.search(
-        request.query
+    return ResearchResponse(
+        query=result["query"],
+        plan=result["plan"],
+        search_results=result["search_results"],
+        summary=result["summary"],
+        final_report=result["final_report"]
     )
-
-    return {
-        "query": request.query,
-        "results": results
-    }

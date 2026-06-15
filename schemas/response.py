@@ -1,11 +1,10 @@
 from pydantic import BaseModel
-from typing import List
-
-
-class ResearchPlan(BaseModel):
-    steps: List[str]
+from typing import List, Dict
 
 
 class ResearchResponse(BaseModel):
     query: str
-    research_plan: List[str]
+    plan: List[str]
+    search_results: List[Dict]
+    summary: str
+    final_report: str

@@ -9,9 +9,13 @@ class SummarizerAgent:
     def run(self, state):
 
         prompt = f"""
-        Summarize:
+        Research Topic:
+        {state['query']}
 
-        {state["search_results"]}
+        Search Results:
+        {state['search_results']}
+
+        Create a concise summary.
         """
 
         summary = self.llm.generate(prompt)

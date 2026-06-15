@@ -1,11 +1,11 @@
-from tools.search_tool import SearchTool
+from services.tavily_service import TavilyService
 
 
 class SearchAgent:
 
     def __init__(self):
-        self.search_tool = SearchTool()
+        self.search_service = TavilyService()
 
-    def search(self, query: str):
+    def run(self, query: str):
 
-        return self.search_tool.search(query)
+        return self.search_service.search(query)

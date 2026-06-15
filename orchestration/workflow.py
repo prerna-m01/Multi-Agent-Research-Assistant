@@ -1,7 +1,19 @@
+from orchestration.state import ResearchState
+
 from agents.planner_agent import PlannerAgent
-from agents.researcher_agent import ResearchAgent
+from agents.search_agent import SearchAgent
 from agents.summarizer_agent import SummarizerAgent
-from agents.writer_agent import WriterAgent
+from agents.report_agent import ReportAgent
+
+from database.db import SessionLocal
+from database.crud import save_research
+from core.logger import logger
+
+logger.info(f"Research started: {query}")
+logger.info("Planning completed")
+logger.info("Search completed")
+logger.info("Summary completed")
+logger.info("Report completed")
 
 
 class ResearchWorkflow:
@@ -9,13 +21,13 @@ class ResearchWorkflow:
     def __init__(self):
 
         self.planner = PlannerAgent()
-        self.researcher = ResearchAgent()
+        self.searcher = SearchAgent()
         self.summarizer = SummarizerAgent()
-        self.writer = WriterAgent()
+        self.reporter = ReportAgent()
 
-    def run(self, query):
+    def run(self, query: str):
 
-        state = {
+        state: ResearchState = {
             "query": query,
             "plan": [],
             "search_results": [],
@@ -25,10 +37,20 @@ class ResearchWorkflow:
 
         state["plan"] = self.planner.run(query)
 
-        state = self.researcher.run(state)
+        state["search_results"] = self.searcher.run(query)
 
         state = self.summarizer.run(state)
 
-        state = self.writer.run(state)
+        state = self.reporter.run(state)
+
+        db = SessionLocal()
+
+        save_research(
+            db=db,
+            query=query,
+            report=state["final_report"]
+        )
+
+        db.close()
 
         return state
