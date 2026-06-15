@@ -48,39 +48,6 @@ Final Research Report
 
 ---
 
-## Project Structure
-
-```text
-multi_agent_research_assistant/
-│
-├── agent/
-│   ├── planner_agent.py
-│   ├── research_agent.py
-│   └── writer_agent.py
-│
-├── api/
-│   └── research.py
-│
-├── core/
-│   └── config.py
-│
-├── orchestration/
-│   └── workflow.py
-│
-├── schemas/
-│   ├── request.py
-│   └── state.py
-│
-├── services/
-│   └── llm_service.py
-│
-├── main.py
-├── pyproject.toml
-├── uv.lock
-└── README.md
-```
-
----
 
 ## Tech Stack
 
