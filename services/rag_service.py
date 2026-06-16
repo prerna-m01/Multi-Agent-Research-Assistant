@@ -85,18 +85,20 @@ def answer_question(
 
         sources.append(
             {
-                "page": doc.metadata.get(
+                "page":
+                doc.metadata.get(
                     "page",
                     "N/A"
                 ),
-                "source": doc.metadata.get(
+
+                "source":
+                doc.metadata.get(
                     "source",
                     "Unknown"
                 ),
-                "score": round(
-                    float(score),
-                    4
-                )
+
+                "score":
+                float(score)
             }
         )
 
@@ -105,9 +107,7 @@ def answer_question(
     )
 
     prompt = f"""
-You are a document assistant.
-
-Answer ONLY using the provided context.
+Answer ONLY from context.
 
 Context:
 {context}

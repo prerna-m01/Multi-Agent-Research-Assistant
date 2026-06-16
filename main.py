@@ -25,7 +25,10 @@ from api.chat import router as chat_router
 from database.db import engine
 from database.models import Base
 
-
+from api.jobs import router as jobs_router
+from api.report import (
+    router as report_router
+)
 # Create tables
 Base.metadata.create_all(bind=engine)
 
@@ -110,4 +113,12 @@ app.include_router(
 )
 app.include_router(
     documents_router
+)
+
+app.include_router(
+    jobs_router
+)
+
+from api.report import (
+    router as report_router
 )

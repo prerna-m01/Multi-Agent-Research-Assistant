@@ -14,3 +14,13 @@ class HistoryResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+model_config = {
+    "json_schema_extra": {
+        "example": {
+            "id": 1,
+            "query": "AI",
+            "report": "..."
+        }
+    }
+}
