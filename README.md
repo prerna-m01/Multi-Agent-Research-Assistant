@@ -1,18 +1,29 @@
 # Multi-Agent Research Assistant
 
-An AI-powered Multi-Agent Research Assistant built using FastAPI, Google Gemini, and Agentic AI principles. The system generates a structured research plan, gathers information, and produces a comprehensive report through collaboration between specialized agents.
+## Overview
+
+The Multi-Agent Research Assistant is an AI-powered research automation platform built using FastAPI, Gemini, Tavily Search, and Retrieval-Augmented Generation (RAG). The system utilizes multiple AI agents that work together to perform research planning, web information gathering, summarization, and report generation.
+
+In addition to automated research, the application supports PDF uploads, document-based question answering, research history management, report downloads, and system health monitoring.
+
+---
 
 ## Features
 
-* Multi-Agent Architecture
-* Research Planning Agent
-* Research Execution Agent
-* Report Generation Agent
-* FastAPI REST API
-* Modular and Scalable Codebase
-* Environment-Based Configuration
-* Ready for LangGraph Integration
-* Production-Friendly Project Structure
+- Multi-Agent Research Workflow
+- AI-Powered Research Planning
+- Tavily Web Search Integration
+- Gemini LLM Integration
+- Automated Research Summarization
+- Research Report Generation
+- Research History Persistence
+- PDF Upload and Processing
+- Retrieval-Augmented Generation (RAG)
+- Document Question Answering
+- Report Export and Download
+- System Statistics Dashboard
+- Health Monitoring APIs
+- Logging and Error Handling
 
 ---
 
@@ -20,99 +31,73 @@ An AI-powered Multi-Agent Research Assistant built using FastAPI, Google Gemini,
 
 ```text
 User Query
-     |
-     v
-+----------------+
-| Planner Agent  |
-+----------------+
-     |
-     v
-Research Plan
-     |
-     v
-+----------------+
-| Research Agent |
-+----------------+
-     |
-     v
-Research Results
-     |
-     v
-+----------------+
-| Writer Agent   |
-+----------------+
-     |
-     v
+    │
+    ▼
+Planner Agent
+    │
+    ▼
+Search Agent
+    │
+    ▼
+Summarizer Agent
+    │
+    ▼
+Writer Agent
+    │
+    ▼
 Final Research Report
 ```
 
----
+### Agent Responsibilities
 
+- **Planner Agent** → Creates a research strategy and subtopics.
+- **Search Agent** → Collects relevant information from the web.
+- **Summarizer Agent** → Produces concise summaries from gathered data.
+- **Writer Agent** → Generates the final structured research report.
+
+---
 
 ## Tech Stack
 
 ### Backend
 
-* FastAPI
-* Uvicorn
+- FastAPI
+- Python
+- SQLAlchemy
+- SQLite
+- Pydantic
 
-### AI / LLM
+### AI & Search
 
-* Google Gemini
+- Google Gemini
+- Tavily Search API
 
-### Agentic AI
+### RAG Components
 
-* Multi-Agent Workflow
-* Planner Agent
-* Research Agent
-* Writer Agent
+- LangChain
+- ChromaDB
+- HuggingFace Embeddings
+- Sentence Transformers
 
-### Future Integrations
+### Utilities
 
-* LangGraph
-* Tavily Search
-* LangSmith
-* Vector Databases
+- Logging
+- Environment Variables
+- PDF Processing
 
 ---
 
 ## Installation
 
-### Clone Repository
+Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/multi-agent-research-assistant.git
+git clone https://github.com/prerna-m01/Multi-Agent-Research-Assistant.git
 
-cd multi-agent-research-assistant
+cd Multi-Agent-Research-Assistant
 ```
 
-### Create Virtual Environment
-
-```bash
-python -m venv .venv
-```
-
-Activate Environment
-
-Windows:
-
-```bash
-.venv\Scripts\activate
-```
-
-Linux / Mac:
-
-```bash
-source .venv/bin/activate
-```
-
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-or
+Install dependencies:
 
 ```bash
 uv sync
@@ -125,88 +110,130 @@ uv sync
 Create a `.env` file:
 
 ```env
-GOOGLE_API_KEY=your_google_api_key
+GOOGLE_API_KEY=your_gemini_api_key
+
+TAVILY_API_KEY=your_tavily_api_key
 ```
 
 ---
 
-## Run Application
+## Run the Application
 
 ```bash
 uvicorn main:app --reload
 ```
 
-Server:
+Application URL:
 
 ```text
-http://127.0.0.1:8000
+http://localhost:8000
 ```
 
-Swagger UI:
+Swagger Documentation:
 
 ```text
-http://127.0.0.1:8000/docs
+http://localhost:8000/docs
 ```
 
 ---
 
-## API Endpoint
+## API Endpoints
 
-### Generate Research Report
-
-**POST**
+### Research
 
 ```http
-/research/
+POST /research
 ```
 
-### Request
-
-```json
-{
-    "query": "Applications of Quantum Computing"
-}
-```
-
-### Response
-
-```json
-{
-    "research_plan": [
-        "Understand quantum computing fundamentals",
-        "Review current industry applications",
-        "Analyze challenges and limitations",
-        "Study future research directions",
-        "Prepare final report"
-    ],
-    "final_report": "Generated research report..."
-}
-```
+Generate a complete research report.
 
 ---
 
-## Workflow
+### History
 
-1. User submits a research query.
-2. Planner Agent creates a research plan.
-3. Research Agent gathers information.
-4. Writer Agent generates a final report.
-5. API returns structured output.
+```http
+GET /history
+```
 
----
+Retrieve all research reports.
 
-## Learning Outcomes
+```http
+GET /history/{id}
+```
 
-This project demonstrates:
-
-* Agentic AI Concepts
-* FastAPI Development
-* LLM Integration
-* Multi-Agent System Design
-* Modular Backend Architecture
-* API Development
-* Production-Oriented Project Structure
+Retrieve a specific report.
 
 ---
 
+### Reports
+
+```http
+GET /report/{id}/download
+```
+
+Download a generated report.
+
+---
+
+### Document Upload
+
+```http
+POST /upload
+```
+
+Upload PDF documents for RAG processing.
+
+---
+
+### RAG Chat
+
+```http
+POST /chat
+```
+
+Ask questions about uploaded PDF documents.
+
+---
+
+### Statistics
+
+```http
+GET /stats
+```
+
+Retrieve system statistics and metrics.
+
+---
+
+### System Health
+
+```http
+GET /system-check
+```
+
+Verify:
+
+- Database connectivity
+- Vector Store availability
+- Gemini API connectivity
+- Tavily API connectivity
+
+---
+
+## Project Structure
+
+```text
+api/
+agents/
+core/
+database/
+orchestration/
+schemas/
+services/
+uploads/
+vectorstore/
+main.py
+```
+
+---
 
