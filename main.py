@@ -4,6 +4,9 @@ from fastapi.responses import JSONResponse
 import time
 
 from core.logger import logger
+from api.documents import (
+    router as documents_router
+)
 from api.stats import (
     router as stats_router
 )
@@ -104,4 +107,7 @@ app.include_router(chat_router)
 
 app.include_router(
     stats_router
+)
+app.include_router(
+    documents_router
 )

@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from sqlalchemy import func
 
 from database.db import SessionLocal
 from database.models import Research
@@ -10,15 +11,15 @@ router = APIRouter(
 
 
 @router.get("/")
-def get_stats():
+def stats():
 
     db = SessionLocal()
 
     try:
 
         report_count = db.query(
-            Research
-        ).count()
+            func.count(Research.id)
+        ).scalar()
 
         return {
             "research_reports":
@@ -29,4 +30,5 @@ def get_stats():
         }
 
     finally:
+
         db.close()
